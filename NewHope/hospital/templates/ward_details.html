@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Ward Details - NewHope Hospital{% endblock %}
+
+{% block content %}
+<section class="page-section">
+  <div class="container">
+    <h1 class="page-title">{{ ward.ward_name }}</h1>
+    <div class="ward-details">
+      <div class="ward-info">
+        <p><strong>Total Beds:</strong> {{ ward.total_beds }}</p>
+        <p><strong>Available Beds:</strong> {{ ward.avail_beds }}</p>
+        <p><strong>Ward Charge:</strong> ${{ ward.ward_charge }}</p>
+        <p><strong>Head Doctor:</strong> {{ ward.head_doctor }}</p>
+      </div>
+      <div class="ward-image">
+        <img src="https://randomuser.me/api/portraits/med/men/{{ ward.id }}.jpg" alt="{{ ward.ward_name }}">
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

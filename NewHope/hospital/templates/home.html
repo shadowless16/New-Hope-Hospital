@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - NewHope Hospital{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title" data-animate="fade-up">NewHope Hospital</h1>
+        <p class="hero-subtitle" data-animate="fade-up">Providing exceptional healthcare with compassion and innovation</p>
+        <div class="hero-buttons" data-animate="fade-up">
+          <a href="{% url 'patients' %}" class="btn btn-primary">Register Patient</a>
+          <a href="#" class="btn btn-outline">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <h2 class="section-title">Hospital Overview</h2>
+        <p class="section-subtitle">Real-time statistics and information about our hospital's operations and services</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card" data-animate="fade-up">
+          <div class="stat-header">
+            <h3 class="stat-title">Doctors</h3>
+            <i class="fas fa-user-md"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-number">50</p>
+            <p class="stat-description">Specialized medical professionals</p>
+          </div>
+        </div>
+        <div class="stat-card" data-animate="fade-up">
+          <div class="stat-header">
+            <h3 class="stat-title">Patients</h3>
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-number">200</p>
+            <p class="stat-description">Currently under our care</p>
+          </div>
+        </div>
+        <div class="stat-card" data-animate="fade-up">
+          <div class="stat-header">
+            <h3 class="stat-title">Available Beds</h3>
+            <i class="fas fa-bed"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-number">30</p>
+            <p class="stat-description">Ready for admission</p>
+          </div>
+        </div>
+        <div class="stat-card" data-animate="fade-up">
+          <div class="stat-header">
+            <h3 class="stat-title">Appointments</h3>
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-number">45</p>
+            <p class="stat-description">Scheduled for today</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive healthcare services designed to meet all your medical needs</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-animate="fade-up">
+          <div class="service-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3 class="service-title">Emergency Care</h3>
+          <p class="service-description">24/7 emergency services with state-of-the-art equipment and specialized staff.</p>
+          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-animate="fade-up">
+          <div class="service-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h3 class="service-title">Specialized Treatments</h3>
+          <p class="service-description">Advanced medical treatments across various specialties and departments.</p>
+          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-animate="fade-up">
+          <div class="service-icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <h3 class="service-title">Insurance & Payments</h3>
+          <p class="service-description">Flexible payment options and support for various insurance providers.</p>
+          <a href="{% url 'payments' %}" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Access Section -->
+  <section class="quick-access-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <h2 class="section-title">Quick Access</h2>
+        <p class="section-subtitle">Navigate to the most frequently used sections of our system</p>
+      </div>
+      <div class="quick-access-grid">
+        <a href="{% url 'doctors' %}" class="quick-access-card" data-animate="fade-up">
+          <i class="fas fa-user-md"></i>
+          <h3>Doctors</h3>
+        </a>
+        <a href="{% url 'patients' %}" class="quick-access-card" data-animate="fade-up">
+          <i class="fas fa-user-plus"></i>
+          <h3>Patients</h3>
+        </a>
+        <a href="{% url 'wards' %}" class="quick-access-card" data-animate="fade-up">
+          <i class="fas fa-bed"></i>
+          <h3>Wards</h3>
+        </a>
+        <a href="{% url 'payments' %}" class="quick-access-card" data-animate="fade-up">
+          <i class="fas fa-credit-card"></i>
+          <h3>Payments</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

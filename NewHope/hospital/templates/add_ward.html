@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Ward - NewHope Hospital{% endblock %}
+
+{% block content %}
+<style>
+  .form-card {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px var(--shadow);
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .required {
+    color: var(--danger);
+    margin-left: 0.25rem;
+  }
+  .form-control {
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+  .form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+</style>
+<section class="page-section">
+  <div class="container">
+    <h1 class="page-title text-center mb-4">Add New Ward</h1>
+    <form method="post" action="{% url 'add_ward' %}" class="form-card">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="ward_name">Ward Name</label>
+        <input type="text" id="ward_name" name="ward_name" class="form-control" placeholder="Ward A" required>
+      </div>
+      <div class="form-group">
+        <label for="ward_type">Ward Type</label>
+        <select id="ward_type" name="ward_type" class="form-control" required>
+          <option value="">Select ward type</option>
+          <option value="general">General</option>
+          <option value="icu">ICU</option>
+          <option value="maternity">Maternity</option>
+          <option value="surgery">Surgery</option>
+          <option value="pediatrics">Pediatrics</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="capacity">Capacity</label>
+        <input type="number" id="capacity" name="capacity" class="form-control" placeholder="20" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" class="form-control" placeholder="Building B, Floor 3" required>
+      </div>
+      <div class="form-actions">
+        <!-- <button type="button" class="btn btn-outline" onclick="window.location.href='{% url 'wards' %}'">Cancel</button> -->
+        <button type="submit" class="btn btn-primary">Add Ward</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

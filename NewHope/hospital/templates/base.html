@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}NewHope Hospital{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="{% url 'home' %}">
+            <span class="logo-text">NewHope Hospital</span>
+          </a>
+        </div>
+
+        <nav class="desktop-nav">
+          <a href="{% url 'home' %}" class="nav-link {% if active_page == 'home' %}active{% endif %}">Home</a>
+          <a href="{% url 'doctors' %}" class="nav-link {% if active_page == 'doctors' %}active{% endif %}">Doctors</a>
+          <a href="{% url 'patients' %}" class="nav-link {% if active_page == 'patients' %}active{% endif %}">Patients</a>
+          <a href="{% url 'wards' %}" class="nav-link {% if active_page == 'wards' %}active{% endif %}">Wards</a>
+          <a href="{% url 'payments' %}" class="nav-link {% if active_page == 'payments' %}active{% endif %}">Payments</a>
+          <a href="{% url 'login' %}" class="nav-link {% if active_page == 'login' %}active{% endif %}">Login</a>
+          <a href="{% url 'signup' %}" class="nav-link {% if active_page == 'signup' %}active{% endif %}">Signup</a>
+        </nav>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="{% url 'home' %}" class="nav-link {% if active_page == 'home' %}active{% endif %}">Home</a>
+      <a href="{% url 'doctors' %}" class="nav-link {% if active_page == 'doctors' %}active{% endif %}">Doctors</a>
+      <a href="{% url 'patients' %}" class="nav-link {% if active_page == 'patients' %}active{% endif %}">Patients</a>
+      <a href="{% url 'wards' %}" class="nav-link {% if active_page == 'wards' %}active{% endif %}">Wards</a>
+      <a href="{% url 'payments' %}" class="nav-link {% if active_page == 'payments' %}active{% endif %}">Payments</a>
+      <a href="{% url 'login' %}" class="nav-link {% if active_page == 'login' %}active{% endif %}">Login</a>
+      <a href="{% url 'signup' %}" class="nav-link {% if active_page == 'signup' %}active{% endif %}">Signup</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3 class="footer-title">NewHope Hospital</h3>
+          <p class="footer-text">Manage doctors, patients, and hospital data with ease.</p>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Contact</h3>
+          <p class="footer-text">Email: info@newhopehospital.com</p>
+          <p class="footer-text">Phone: 555-123-4567</p>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Links</h3>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="currentYear"></span> NewHope Hospital. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

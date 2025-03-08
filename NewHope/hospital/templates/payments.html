@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+{% block title %}Payments & Billing - NewHope Hospital{% endblock %}
+
+{% block content %}
+<section class="page-section">
+  <div class="container">
+    <div class="page-header-flex">
+      <div>
+        <h1 class="page-title">Payments & Billing</h1>
+        <p class="page-subtitle">Manage patient invoices and payment records</p>
+      </div>
+      <div class="header-actions">
+        <a href="#" class="btn btn-outline-primary">
+          <i class="fas fa-file-alt"></i> Reports
+        </a>
+        <a href="#" class="btn btn-success">
+          <i class="fas fa-plus"></i> New Invoice
+        </a>
+      </div>
+    </div>
+
+    <!-- Billing Statistics -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Total Revenue</h3>
+          <i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="stat-content">
+          <p class="stat-number">₦45,250.00</p>
+          <p class="stat-description">For current month</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Pending Payments</h3>
+          <i class="fas fa-credit-card"></i>
+        </div>
+        <div class="stat-content">
+          <p class="stat-number">₦12,800.00</p>
+          <p class="stat-description">Awaiting processing</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Overdue Payments</h3>
+          <i class="fas fa-credit-card text-danger"></i>
+        </div>
+        <div class="stat-content">
+          <p class="stat-number text-danger">₦3,600.00</p>
+          <p class="stat-description">Requires attention</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header">
+          <h3 class="stat-title">Paid Invoices</h3>
+          <i class="fas fa-dollar-sign text-success"></i>
+        </div>
+        <div class="stat-content">
+          <p class="stat-number text-success">₦28,850.00</p>
+          <p class="stat-description">Successfully processed</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payments Tabs -->
+    <div class="tabs-container">
+      <div class="tabs-header">
+        <div class="tabs">
+          <button class="tab-button active" data-tab="all">All Invoices</button>
+          <button class="tab-button" data-tab="pending">Pending</button>
+          <button class="tab-button" data-tab="overdue">Overdue</button>
+        </div>
+        <div class="search-container">
+          <div class="search-bar">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search invoices...">
+          </div>
+        </div>
+      </div>
+
+      <!-- All Invoices Tab -->
+      <div class="tab-content active" id="all">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  <div class="sortable-header">
+                    Invoice ID
+                    <i class="fas fa-sort"></i>
+                  </div>
+                </th>
+                <th>
+                  <div class="sortable-header">
+                    Patient
+                    <i class="fas fa-sort"></i>
+                  </div>
+                </th>
+                <th>
+                  <div class="sortable-header">
+                    Date
+                    <i class="fas fa-sort"></i>
+                  </div>
+                </th>
+                <th>
+                  <div class="sortable-header">
+                    Amount
+                    <i class="fas fa-sort"></i>
+                  </div>
+                </th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-medium">INV-001</td>
+                <td>
+                  <div>
+                    <p>John Smith</p>
+                    <p class="text-muted small">P-1001</p>
+                  </div>
+                </td>
+                <td>2023-03-25</td>
+                <td class="font-medium">₦1,250.00</td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <a href="#" class="btn btn-sm btn-outline">View</a>
+                    <button class="btn btn-sm btn-icon">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">INV-002</td>
+                <td>
+                  <div>
+                    <p>Mary Johnson</p>
+                    <p class="text-muted small">P-1002</p>
+                  </div>
+                </td>
+                <td>2023-03-26</td>
+                <td class="font-medium">₦850.00</td>
+                <td><span class="badge badge-warning">Pending</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <a href="#" class="btn btn-sm btn-outline">View</a>
+                    <button class="btn btn-sm btn-icon">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">INV-003</td>
+                <td>
+                  <div>
+                    <p>Robert Davis</p>
+                    <p class="text-muted small">P-1003</p>
+                  </div>
+                </td>
+                <td>2023-03-27</td>
+                <td class="font-medium">₦350.00</td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <a href="#" class="btn btn-sm btn-outline">View</a>
+                    <button class="btn btn-sm btn-icon">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">INV-004</td>
+                <td>
+                  <div>
+                    <p>Patricia Wilson</p>
+                    <p class="text-muted small">P-1004</p>
+                  </div>
+                </td>
+                <td>2023-03-28</td>
+                <td class="font-medium">₦1,800.00</td>
+                <td><span class="badge badge-danger">Overdue</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <a href="#" class="btn btn-sm btn-outline">View</a>
+                    <button class="btn btn-sm btn-icon">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">INV-005</td>
+                <td>
+                  <div>
+                    <p>James Brown</p>
+                    <p class="text-muted small">P-1005</p>
+                  </div>
+                </td>
+                <td>2023-03-29</td>
+                <td class="font-medium">₦550.00</td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <a href="#" class="btn btn-sm btn-outline">View</a>
+                    <button class="btn btn-sm btn-icon">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pending Tab -->
+      <div class="tab-content" id="pending">
+        <!-- Content similar to All Invoices tab but filtered for pending status -->
+      </div>
+
+      <!-- Overdue Tab -->
+      <div class="tab-content" id="overdue">
+        <!-- Content similar to All Invoices tab but filtered for overdue status -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

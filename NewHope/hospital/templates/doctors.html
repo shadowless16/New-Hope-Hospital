@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Doctors - NewHope Hospital
+{% endblock %}
+
+{% block content %}
+    <section class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Doctors</h1>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search doctors by name or specialization...">
+                </div>
+            </div>
+
+            <!-- Doctor Cards -->
+            <div class="doctors-grid">
+                {% for doctor in doctors %}
+                    <div class="doctor-card">
+                        <div class="doctor-info">
+                            <div class="doctor-image">
+                                <img src="https://randomuser.me/api/portraits/med/men/{{ forloop.counter }}.jpg" alt="{{ doctor.first_name }} {{ doctor.last_name }}">
+                            </div>
+                            <div class="doctor-details">
+                                <h3 class="doctor-name">{{ doctor.first_name }} {{ doctor.last_name }}</h3>
+                                <p class="doctor-specialization">{{ doctor.specialization }}</p>
+                                <a href="#" class="btn btn-primary btn-sm">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No doctors found.</p>
+                {% endfor %}
+            </div>
+
+            <!-- Add Doctor Button -->
+            <div class="action-button-container">
+                <a href="{% url 'add_doctor' %}" class="btn btn-success">Add New Doctor</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

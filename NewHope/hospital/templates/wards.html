@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Wards - NewHope Hospital{% endblock %}
+
+{% block content %}
+<section class="page-section">
+  <div class="container">
+    <div class="page-header-flex">
+      <div>
+        <h1 class="page-title">Hospital Wards</h1>
+        <p class="page-subtitle">Manage and monitor all hospital wards and bed availability</p>
+      </div>
+      <a href="{% url 'add_ward' %}" class="btn btn-success">Add New Ward</a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <div class="search-bar">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Search wards by name or doctor...">
+      </div>
+    </div>
+
+    <!-- Ward Cards -->
+    <div class="wards-grid">
+      {% for ward in wards %}
+      <div class="ward-card">
+        <div class="ward-image">
+          <img src="https://randomuser.me/api/portraits/med/men/{{ forloop.counter }}.jpg" alt="{{ ward.ward_name }}">
+          <span class="badge badge-success">{{ ward.avail_beds }} beds available</span>
+        </div>
+        <div class="ward-header">
+          <h3 class="ward-name">{{ ward.ward_name }}</h3>
+        </div>
+        <div class="ward-content">
+          <div class="occupancy-rate">
+            <span class="rate-label">Occupancy Rate:</span>
+            <div class="rate-bar-container">
+              <div class="rate-bar"></div>
+            </div>
+            <span class="rate-value">{{ ward.occupancy_rate }}%</span>
+          </div>
+          <div class="ward-info">
+            <p><i class="fas fa-bed"></i> {{ ward.total_beds }} Total Beds</p>
+            <p><i class="fas fa-user-md"></i> Head: {{ ward.head_doctor }}</p>
+          </div>
+          <a href="{% url 'ward_details' ward.id %}" class="btn btn-primary btn-block">View Details</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
