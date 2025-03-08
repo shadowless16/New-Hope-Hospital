@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: new-hope-hospital-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    startCommand: gunicorn your_project_name.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: your_project_name.settings
+      - key: SECRET_KEY
+        value: your-secret-key
+      - key: DATABASE_URL
+        fromDatabase:
+          name: new-hope-hospital-db
+          property: connectionString
+
+  - type: static
+    name: new-hope-hospital-frontend
+    env: static
+    buildCommand: python render_templates.py
+    staticPublishPath: dist
