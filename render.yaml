@@ -15,7 +15,7 @@ services:
           name: new-hope-hospital-db
           property: connectionString
 
-  - type: static
+  - type: static_site
     name: new-hope-hospital-frontend
     env: static
     buildCommand: python render_templates.py
